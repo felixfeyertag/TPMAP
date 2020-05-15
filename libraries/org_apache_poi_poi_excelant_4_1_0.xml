@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="org.apache.poi:poi-excelant:4.1.0" type="repository">
+    <properties maven-id="org.apache.poi:poi-excelant:4.1.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/lib/poi-excelant-4.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/poi-4.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/commons-codec-1.12.jar!/" />
+      <root url="jar://$USER_HOME$/lib/commons-collections4-4.3.jar!/" />
+      <root url="jar://$USER_HOME$/lib/commons-math3-3.6.1.jar!/" />
+      <root url="jar://$USER_HOME$/lib/poi-ooxml-4.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/poi-ooxml-schemas-4.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/xmlbeans-3.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/commons-compress-1.18.jar!/" />
+      <root url="jar://$USER_HOME$/lib/curvesapi-1.06.jar!/" />
+      <root url="jar://$USER_HOME$/lib/ant-1.8.2.jar!/" />
+      <root url="jar://$USER_HOME$/lib/ant-launcher-1.8.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

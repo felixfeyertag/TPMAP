@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>TPMAP</title>
+        <style>
+            body {
+                background-color: #F4F4F4;
+                font-family: sans-serif;
+                padding-left: 20%;
+                padding-right: 20%;
+                padding-top: 25px;
+                padding-bottom: 25px;
+            }
+            h1 {
+                color: #225588;
+            }
+            h2 {
+                color: #336699;
+            }
+            a {
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1> Access Restricted </h1>
+
+        <p> TPMAP restricted access to the following external website:</p>
+        <p id="url">  </p>
+        <p> <button type="button" id="link"> Open link in default web browser </button> </p>
+
+        <script>
+            const urlParams = new URLSearchParams(location.search);
+            const errorURL = urlParams.get('site');
+            document.getElementById("url").innerHTML = errorURL;
+            document.getElementById("link").setAttribute("name",errorURL);
+        </script>
+
+    </body>
+</html>

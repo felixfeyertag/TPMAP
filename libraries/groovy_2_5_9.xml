@@ -1,0 +1,67 @@
+<component name="libraryTable">
+  <library name="groovy-2.5.9">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/extras-jaxb/activation-1.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/extras-jaxb/jaxb-core-2.3.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/extras-jaxb/jaxb-impl-2.3.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/extras-jaxb/jaxb-api-2.3.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/junit-jupiter-api-5.4.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/junit-jupiter-engine-5.4.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/testng-6.13.1.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-groovysh-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/ant-junit-1.9.13.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-jaxb-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-jmx-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-console-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-json-direct-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-servlet-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-ant-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-macro-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-test-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-testng-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-nio-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-sql-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-templates-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-test-junit5-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/apiguardian-api-1.0.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-docgenerator-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-groovydoc-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/junit-platform-commons-1.4.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/junit-platform-engine-1.4.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/opentest4j-1.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-json-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/junit-platform-launcher-1.4.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-xml-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-jsr223-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-dateutil-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-swing-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-bsf-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-cli-commons-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-cli-picocli-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/groovy-datetime-2.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/ant-1.9.13.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/picocli-4.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/ant-launcher-1.9.13.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/jansi-1.17.1.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/ant-antlr-1.9.13.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/ivy-2.4.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/jcommander-1.72.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/jline-2.14.6.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/javax.servlet-api-3.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/jsp-api-2.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/junit-4.12.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/bsf-2.4.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/qdox-1.12.1.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/commons-cli-1.4.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/jsr166y-1.7.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/gpars-1.2.1.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/multiverse-core-0.7.0.jar!/" />
+      <root url="jar://$USER_HOME$/lib/groovy-2.5.9/lib/xstream-1.4.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

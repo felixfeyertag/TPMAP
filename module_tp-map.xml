@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_tp-map" default="compile.module.tp-map">
+  <dirname property="module.tp-map.basedir" file="${ant.file.module_tp-map}"/>
+  
+  <property name="module.jdk.home.tp-map" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.tp-map" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.tp-map" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.tp-map" value="-encoding UTF-8 -source 11 -target 11 ${compiler.args}"/>
+  
+  <property name="tp-map.output.dir" value="${module.tp-map.basedir}/out/production/TP-MAP"/>
+  <property name="tp-map.testoutput.dir" value="${module.tp-map.basedir}/out/test/TP-MAP"/>
+  
+  <path id="tp-map.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="tp-map.module.production.classpath">
+    <path refid="${module.jdk.classpath.tp-map}"/>
+    <path refid="library.groovy-2.5.9.classpath"/>
+    <path refid="library.org.jfree:jcommon:1.0.24.classpath"/>
+    <path refid="library.org.jfree:jfreechart:1.5.0.classpath"/>
+    <path refid="library.org.jfree:jfreechart-fx:1.0.1.classpath"/>
+    <path refid="library.org.apache.pdfbox:pdfbox:2.0.13.classpath"/>
+    <path refid="library.org.apache.poi:poi:4.1.0.classpath"/>
+    <path refid="library.org.apache.httpcomponents:httpclient-osgi:4.5.10.classpath"/>
+    <path refid="library.org.apache.commons:commons-math3:3.6.1.classpath"/>
+    <path refid="library.org.apache.poi:poi-excelant:4.1.0.classpath"/>
+    <path refid="library.javafx.base.classpath"/>
+  </path>
+  
+  <path id="tp-map.runtime.production.module.classpath">
+    <pathelement location="${tp-map.output.dir}"/>
+    <path refid="library.groovy-2.5.9.classpath"/>
+    <path refid="library.org.jfree:jcommon:1.0.24.classpath"/>
+    <path refid="library.org.jfree:jfreechart:1.5.0.classpath"/>
+    <path refid="library.org.jfree:jfreechart-fx:1.0.1.classpath"/>
+    <path refid="library.org.apache.pdfbox:pdfbox:2.0.13.classpath"/>
+    <path refid="library.org.apache.poi:poi:4.1.0.classpath"/>
+    <path refid="library.org.apache.httpcomponents:httpclient-osgi:4.5.10.classpath"/>
+    <path refid="library.org.apache.commons:commons-math3:3.6.1.classpath"/>
+    <path refid="library.org.apache.poi:poi-excelant:4.1.0.classpath"/>
+    <path refid="library.javafx.base.classpath"/>
+  </path>
+  
+  <path id="tp-map.module.classpath">
+    <path refid="${module.jdk.classpath.tp-map}"/>
+    <pathelement location="${tp-map.output.dir}"/>
+    <path refid="library.groovy-2.5.9.classpath"/>
+    <path refid="library.org.jfree:jcommon:1.0.24.classpath"/>
+    <path refid="library.org.jfree:jfreechart:1.5.0.classpath"/>
+    <path refid="library.org.jfree:jfreechart-fx:1.0.1.classpath"/>
+    <path refid="library.org.apache.pdfbox:pdfbox:2.0.13.classpath"/>
+    <path refid="library.org.apache.poi:poi:4.1.0.classpath"/>
+    <path refid="library.org.apache.httpcomponents:httpclient-osgi:4.5.10.classpath"/>
+    <path refid="library.org.apache.commons:commons-math3:3.6.1.classpath"/>
+    <path refid="library.org.apache.poi:poi-excelant:4.1.0.classpath"/>
+    <path refid="library.javafx.base.classpath"/>
+  </path>
+  
+  <path id="tp-map.runtime.module.classpath">
+    <pathelement location="${tp-map.testoutput.dir}"/>
+    <pathelement location="${tp-map.output.dir}"/>
+    <path refid="library.groovy-2.5.9.classpath"/>
+    <path refid="library.org.jfree:jcommon:1.0.24.classpath"/>
+    <path refid="library.org.jfree:jfreechart:1.5.0.classpath"/>
+    <path refid="library.org.jfree:jfreechart-fx:1.0.1.classpath"/>
+    <path refid="library.org.apache.pdfbox:pdfbox:2.0.13.classpath"/>
+    <path refid="library.org.apache.poi:poi:4.1.0.classpath"/>
+    <path refid="library.org.apache.httpcomponents:httpclient-osgi:4.5.10.classpath"/>
+    <path refid="library.org.apache.commons:commons-math3:3.6.1.classpath"/>
+    <path refid="library.org.apache.poi:poi-excelant:4.1.0.classpath"/>
+    <path refid="library.javafx.base.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.tp-map">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.tp-map">
+    <patternset refid="excluded.from.module.tp-map"/>
+  </patternset>
+  
+  <path id="tp-map.module.sourcepath">
+    <dirset dir="${module.tp-map.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.tp-map" depends="compile.module.tp-map.production,compile.module.tp-map.tests" description="Compile module TP-MAP"/>
+  
+  <target name="compile.module.tp-map.production" depends="register.custom.compilers" description="Compile module TP-MAP; production classes">
+    <mkdir dir="${tp-map.output.dir}"/>
+    <groovyc destdir="${tp-map.output.dir}" fork="yes">
+      <src refid="tp-map.module.sourcepath"/>
+      <classpath refid="tp-map.module.production.classpath"/>
+      <patternset refid="excluded.from.compilation.tp-map"/>
+      <javac debug="${compiler.debug}">
+        <compilerarg line="${compiler.args.tp-map}"/>
+      </javac>
+    </groovyc>
+    <instrumentIdeaExtensions destdir="${tp-map.output.dir}">
+      <compilerarg line="${compiler.args.tp-map}"/>
+      <bootclasspath refid="tp-map.module.bootclasspath"/>
+      <classpath refid="tp-map.module.production.classpath"/>
+      <src refid="tp-map.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.tp-map"/>
+    </instrumentIdeaExtensions>
+    
+    <copy todir="${tp-map.output.dir}">
+      <fileset dir="${module.tp-map.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.tp-map.tests" depends="register.custom.compilers,compile.module.tp-map.production" description="compile module TP-MAP; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.tp-map" description="cleanup module">
+    <delete dir="${tp-map.output.dir}"/>
+    <delete dir="${tp-map.testoutput.dir}"/>
+  </target>
+</project>

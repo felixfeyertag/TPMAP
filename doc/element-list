@@ -1,0 +1,9 @@
+com.chembiohub.tpmap
+com.chembiohub.tpmap.analysis
+com.chembiohub.tpmap.analysis.analysispane
+com.chembiohub.tpmap.doc
+com.chembiohub.tpmap.dstruct
+com.chembiohub.tpmap.dstruct.io
+com.chembiohub.tpmap.normalisation
+com.chembiohub.tpmap.scoring
+com.chembiohub.tpmap.ui
