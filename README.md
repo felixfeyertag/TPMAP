@@ -6,7 +6,7 @@ Download the latest version of TP-MAP from the [releases page](https://gitlab.co
 
 **Important** Windows and/or MacOS may issue a security alert the first time TP-MAP is started stating that TP-MAP is an unrecognised app or from an unrecognised developer. Under Windows, click on "More info" and then "Run anyway". Under MacOS, open the System Preferences->Security & Privacy, and click on Allow TP-MAP to run on this computer.
 
-To run the JAR file on Windows:
+### To run the JAR file on Windows:
 
 1. Install 64-bit OpenJDK 11 or higher
 2. Download TP-MAP-1.0-SNAPSHOT-jar-Windows.jar to your Desktop
@@ -26,7 +26,7 @@ If the above command doesn't work it may mean that your Java path is set incorre
     * If your AdoptOpenJDK path is not specified, then select "New" and add it to the top, e.g. "C:\Program Files\AdoptOpenJDK\jdk-11.0.7.10-hotspot\bin"
     * Otherwise select your AdoptOpenJDK path and select "Move Up" until it appears at the top
 
-To run the JAR file on MacOS:
+### To run the JAR file on MacOS:
 
 1. Install 64-bit OpenJDK 11 or higher ([https://adoptopenjdk.net](https://adoptopenjdk.net))
 2. Download TP-MAP-1.0-SNAPSHOT-MacOS.jar to your desktop
