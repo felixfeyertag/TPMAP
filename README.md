@@ -4,38 +4,46 @@ Download the latest version of TP-MAP from the [releases page](https://gitlab.co
 
 **Important** TP-MAP requires 64-bit OpenJDK version 11 or higher to run, this can be downloaded from: [https://adoptopenjdk.net](https://adoptopenjdk.net)
 
-**Important** Windows and/or MacOS may issue a security alert the first time TP-MAP is started stating that TP-MAP is an unrecognised app or developer. Under Windows, click on "More info" and then "Run anyway". Under MacOS, open the System Preferences->Security & Privacy, and click on Allow TP-MAP to run on this computer.
+**Important** Windows and/or MacOS may issue a security alert the first time TP-MAP is started stating that TP-MAP is an unrecognised app or from an unrecognised developer. Under Windows, click on "More info" and then "Run anyway". Under MacOS, open the System Preferences->Security & Privacy, and click on Allow TP-MAP to run on this computer.
 
 To run the JAR file on Windows:
 
 1. Install 64-bit OpenJDK 11 or higher
 2. Download TP-MAP-1.0-SNAPSHOT-jar-Windows.jar to your Desktop
 3. Run the following command (Windows Key + R):
+
     `java -Xmx64g -jar %HOMEPATH%\Desktop\TP-MAP-1.0-SNAPSHOT-jar-Windows.jar`
 
 If the above command doesn't work it may mean that your Java path is set incorrectly, this can be resolved by:
 
 * Entering the full path for your OpenJDK java executable, e.g.
+
     `"C:\Program Files\AdoptOpenJDK\jdk-11.0.7.10-hotspot\bin\java" -Xmx64g -jar %HOMEPATH%\Desktop\TP-MAP-1.0-SNAPSHOT-jar-Windows.jar`
+
 * Editing the Path environment variable to ensure that the OpenJDK bin directory appears before any other instances of Java installed on your system:
     1. System->Advanced->Environment Variables..
     2. Under "System variables" select Path and press edit
-      * If your AdoptOpenJDK path is not specified, then select "New" and add it to the top, e.g. "C:\Program Files\AdoptOpenJDK\jdk-11.0.7.10-hotspot\bin"
-      * Otherwise select your AdoptOpenJDK path and select "Move Up" until it appears at the top
+    * If your AdoptOpenJDK path is not specified, then select "New" and add it to the top, e.g. "C:\Program Files\AdoptOpenJDK\jdk-11.0.7.10-hotspot\bin"
+    * Otherwise select your AdoptOpenJDK path and select "Move Up" until it appears at the top
 
 To run the JAR file on MacOS:
 
 1. Install 64-bit OpenJDK 11 or higher ([https://adoptopenjdk.net](https://adoptopenjdk.net))
 2. Download TP-MAP-1.0-SNAPSHOT-MacOS.jar to your desktop
 3. Open a terminal and run the following command:
+
     `java -Xmx64g -jar ~/Desktop/TP-MAP-1.0-SNAPSHOT-MacOS.jar`
 
 If the above command doesn't work it may mean that your Java path is set incorrectly, this can be resolved by:
 
 * Entering the full path for your OpenJDK java executable, e.g.
+
     `/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jre/Contents/Home/bin/java -Xmx64g -jar ~/Desktop/TP-MAP-1.0-SNAPSHOT-MacOS.jar`
+
 * Editing the PATH environment variable to ensure that the OpenJDK bin directory appears before any other instances of Java installed on your system. Run the command:
+
     `export PATH=/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jre/Contents/Home/bin:$PATH`
+
   To make this change permanent, this command can be added to ~/.zprofile under ZSH or ~/.bash_profile under BASH
 
 # Quick Start
