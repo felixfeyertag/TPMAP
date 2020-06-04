@@ -59,7 +59,7 @@ TP-MAP is designed to run on standard desktop computers and has been tested on m
 
 Execute the TP-MAP application on your system.
 
-The "Import Protein Abundance" button located at the top to launch the import panel can be used to load example datasets located in the [datasets](https://gitlab.com/ChemBioHub/tpmap/-/tree/master/datasets) directory. Default options are set so that example datasets can be loaded within 5 minutes on a typical desktop computer.
+The "Import Protein Abundance" button located at the top can be used to load example datasets located in the [datasets](https://gitlab.com/ChemBioHub/tpmap/-/tree/master/datasets) directory. Default options are set so that example datasets can be loaded within 5 minutes on a typical desktop computer.
 
 ## Import Panel
 
