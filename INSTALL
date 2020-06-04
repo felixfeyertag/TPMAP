@@ -1,6 +1,6 @@
-
 INSTALL
 
+TP-MAP is implemented in Java 11 and compilation is automated using Apache Maven. Installation time on a typical computer should be under 5 minutes.
 
 DEPENDENCIES
 
