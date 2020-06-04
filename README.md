@@ -52,9 +52,8 @@ If the above command doesn't work it may mean that your Java path is set incorre
 
 TP-MAP is designed to run on standard desktop computers and has been tested on macOS Catalina (10.15) and Microsoft Windows 10. Compilation may work under other operating systems with support for Java 11.
 
-Minimum System Requirements: Intel Core i3 1 GHz, 8 GB RAM
-
-Recommended System Requirements: Intel Core i5 3 GHz, 16 GB RAM
+* Minimum System Requirements: Intel Core i3 1 GHz, 8 GB RAM
+* Recommended System Requirements: Intel Core i5 3 GHz, 16 GB RAM
 
 # Quick Start
 
