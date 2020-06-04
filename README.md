@@ -54,6 +54,7 @@ Begin by pressing the "Import Protein Abundance" button located at the top to la
 
 ## Import Panel
 
+![Import panel](https://gitlab.com/ChemBioHub/tpmap/-/blob/master/src/main/java/com/chembiohub/tpmap/doc/import.png)
 
 The import panel contains the following options for importing data.
 
@@ -108,7 +109,7 @@ For importing Proteome Discoverer format, an additional tab-separated text confi
 
 ## 2D Thermal Profiling Analysis
 
-![2D Thermal Profiling Analysis](2danalysis.png)
+![2D Thermal Profiling Analysis](https://gitlab.com/ChemBioHub/tpmap/-/blob/master/src/main/java/com/chembiohub/tpmap/doc/2danalysis.png)
 
 The analysis window contains a left panel displaying properties of the 2D thermal profiling data set, a central panel displaying a list of all proteins and the abundance-dependent thermal stability matrix when a protein is selected, and a right panel including options for down-stream analysis of selected proteins.
 
@@ -148,7 +149,7 @@ The filter box can be used to search all fields, and has support for common regu
 
 ## 1D Thermal Profiling Analysis
 
-![1D Thermal Profiling Analysis](1danalysis.png)
+![1D Thermal Profiling Analysis](https://gitlab.com/ChemBioHub/tpmap/-/blob/master/src/main/java/com/chembiohub/tpmap/doc/1danalysis.png)
 
 The analysis window contains a left panel displaying properties of the 1D thermal profiling data set, a central panel displaying a list of all proteins and the temperature-dependent thermal stability matrix as well as melting curves when a protein is selected, and a right panel including options for down-stream analysis of selected proteins.
 
