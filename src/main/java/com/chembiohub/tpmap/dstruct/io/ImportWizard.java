@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Felix Feyertag <felix.feyertag@ndm.ox.ac.uk>
+ * Copyright (C) 2021 Felix Feyertag <felix.feyertag@ndm.ox.ac.uk>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@ import com.chembiohub.tpmap.dstruct.Protein2DParameters;
 import com.chembiohub.tpmap.dstruct.ProteinParameters;
 import com.chembiohub.tpmap.dstruct.Proteome;
 import com.chembiohub.tpmap.dstruct.Proteome.ExpType;
+import com.chembiohub.tpmap.dstruct.io.PD2DConfigFileBuilder;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -118,7 +119,7 @@ public class ImportWizard implements Runnable {
         importWizardStage.initOwner(parentStage);
         importWizardStage.initModality(Modality.APPLICATION_MODAL);
         
-        importWizardStage.setHeight(420);
+        importWizardStage.setHeight(450);
         importWizardStage.setWidth(630);
         currentStep.set(0);
         
@@ -321,15 +322,18 @@ public class ImportWizard implements Runnable {
         });
         
         //Configuration file loader
-        HBox confFileLoadBox = new HBox();
+        VBox confFileLoadBox = new VBox();
+        HBox confFileLoadBox1 = new HBox();
+        HBox confFileLoadBox2 = new HBox();
+        confFileLoadBox2.setPadding(new Insets(5,0,0,0));
         confFileLoadBox.setPadding(new Insets(5,8,10,8));
         Label cfLabel = new Label("Configuration file: ");
         cfLabel.setMinWidth(180);
-        confFileLoadBox.getChildren().add(cfLabel);
+        confFileLoadBox1.getChildren().add(cfLabel);
         TextField confFileName = new TextField();
         confFileName.setMinWidth(200);
         confFileName.setEditable(false);
-        confFileLoadBox.getChildren().add(confFileName);
+        confFileLoadBox1.getChildren().add(confFileName);
         Button confFileLoadButton = new Button();
         FileChooser confFileFC = new FileChooser();
         confFileFC.getExtensionFilters().addAll(
@@ -337,8 +341,7 @@ public class ImportWizard implements Runnable {
         );
         confFileFC.setTitle("Open Configuration File");
         confFileLoadButton.setText("Load");
-        confFileLoadBox.getChildren().add(confFileLoadButton);
-        step1.add(confFileLoadBox, 1, row++);
+        confFileLoadBox1.getChildren().add(confFileLoadButton);
         confFileLoadButton.setOnAction((ActionEvent event) -> {
             try {
                 File f = confFileFC.showOpenDialog(importWizardStage);
@@ -349,6 +352,28 @@ public class ImportWizard implements Runnable {
                 }
             } catch (Exception e) { }
         });
+        
+        Label cfgbLabel = new Label("Generate: ");
+        cfgbLabel.setMinWidth(180);
+        confFileLoadBox2.getChildren().add(cfgbLabel);
+
+        Button confFile1DGenButton = new Button();
+        confFile1DGenButton.setText("1D Configuration");
+        confFileLoadBox2.getChildren().add(confFile1DGenButton);
+        confFile1DGenButton.setOnAction((ActionEvent event) -> {
+            PD1DConfigFileBuilder cfBuilder = new PD1DConfigFileBuilder(importWizardStage);
+        });
+
+        Button confFile2DGenButton = new Button();
+        confFile2DGenButton.setText("2D Configuration");
+        confFileLoadBox2.getChildren().add(confFile2DGenButton);
+        confFile2DGenButton.setOnAction((ActionEvent event) -> {
+            PD2DConfigFileBuilder cfBuilder = new PD2DConfigFileBuilder(importWizardStage);
+        });
+
+        confFileLoadBox.getChildren().addAll(confFileLoadBox1, confFileLoadBox2);
+        step1.add(confFileLoadBox, 1, row++);
+
         confFileLoadBox.setDisable(true);
         confFileName.setOnDragOver(new EventHandler() {
             @Override
