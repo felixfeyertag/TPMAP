@@ -337,6 +337,12 @@ public class PD2DConfigFileBuilder {
         Map<Integer,String[]> positions = new HashMap<>();
         String[] head = null;
         try {
+
+            if(filePath.getValue().toLowerCase().endsWith("xlsx") || filePath.getValue().toLowerCase().endsWith("xls")) {
+              String datFilePath = GenericFileImporter.convertXLS(filePath.getValue());
+              this.filePath.setValue(datFilePath);
+            }
+
             BufferedReader br = new BufferedReader(new FileReader(filePath.get()));
             head = br.readLine().split("\t");
 
@@ -360,7 +366,6 @@ public class PD2DConfigFileBuilder {
                     tmtVal = tmtVal.replaceFirst("^[^,]*, ", "");
                     repVal = repVal.replaceFirst("^.*: ", "");
                     repVal = repVal.replaceFirst(", .*$", "");
-                    System.out.println("tmtval = " + tmtVal + "\n" + "repVal = " + repVal); 
                     headers.add(repVal + "\t" + tmtVal);
                     index.put(repVal + "\t" + tmtVal, i);
                 }

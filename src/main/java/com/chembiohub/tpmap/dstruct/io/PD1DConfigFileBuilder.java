@@ -328,6 +328,12 @@ public class PD1DConfigFileBuilder {
         Map<Integer,String[]> positions = new HashMap<>();
         String[] head = null;
         try {
+
+            if(filePath.getValue().toLowerCase().endsWith("xlsx") || filePath.getValue().toLowerCase().endsWith("xls")) {
+              String datFilePath = GenericFileImporter.convertXLS(filePath.getValue());
+              this.filePath.setValue(datFilePath);
+            }
+
             BufferedReader br = new BufferedReader(new FileReader(filePath.get()));
             head = br.readLine().split("\t");
 
