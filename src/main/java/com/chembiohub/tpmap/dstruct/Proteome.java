@@ -202,9 +202,9 @@ public class Proteome<T extends Protein> {
         return medians;
     }
     
-    public boolean importWizard(Stage parentStage, double min, double max) {
+    public boolean importWizard(Stage parentStage, double min, double max, String tp1d, String tp2d) {
         
-        ImportWizard wizard = new ImportWizard(parentStage,tpTabPane,min,max);
+        ImportWizard wizard = new ImportWizard(parentStage,tpTabPane,min,max,tp1d,tp2d);
         Thread wizardThread = new Thread(wizard);
 
         wizardThread.run();

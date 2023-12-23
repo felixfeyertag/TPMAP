@@ -21,8 +21,9 @@ import com.chembiohub.tpmap.ui.TP1DUserInterface;
 import com.chembiohub.tpmap.ui.TP2DUserInterface;
 import com.chembiohub.tpmap.ui.TPUserInterface;
 import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -35,7 +36,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.util.List;
 
 /**
  * The TPMAPApplication class instantiates a JavaFX interface with an "Import" button that will create an
@@ -52,18 +53,28 @@ public class TPMAPApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
 
+        List<String> args = getParameters().getUnnamed();
+        for (String arg : args) {
+            if(arg.matches("-h") || arg.matches("--help")) {
+                System.out.println("TP-MAP Version 1 Beta 6");
+                System.out.println();
+                System.out.println("Copyright (c) 2023 The Huber Lab, Centre for Medicines Discovery, University of Oxford");
+                System.out.println("This software is Free Software, distributed under the GNU General Public License (GPL), version 3.");
+                System.out.println();
+                System.out.println("Usage:");
+                System.out.println(" $ java -Xmx64g -jar TP-MAP-Beta-1.6-jar-with-dependencies.jar [ARGS]");
+                System.out.println();
+                System.out.println("Command line arguments:");
+                System.out.println();
+                System.out.println("  --help|-h                       This help message");
+                System.out.println("  --TP1D=<FILE>[,<FILE>,...]      Load a 1D TPMAP formatted file on startup, multiple files can be specified separated by a comma (,)");
+                System.out.println("  --TP2D=<FILE>[,<FILE>,...]      Load a 2D TPMAP formatted file on startup, multiple files can be specified separated by a comma (,)");
+                System.out.println();
+                System.exit(0);
+            }
+        }
+
         BorderPane root = new BorderPane();
-
-        Pane topPane = setTopPane(primaryStage);
-
-        tpTabPane = new TabPane();
-
-        TPDocTab docTab = new TPDocTab();
-
-        tpTabPane.getTabs().add(docTab.getDocTab());
-
-        root.setTop(topPane);
-        root.setCenter(tpTabPane);
 
         Scene scene = new Scene(root, 300, 250);
 
@@ -72,6 +83,14 @@ public class TPMAPApplication extends Application {
         primaryStage.setMaximized(true);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        tpTabPane = new TabPane();
+        TPDocTab docTab = new TPDocTab();
+        tpTabPane.getTabs().add(docTab.getDocTab());
+
+        Pane topPane = setTopPane(primaryStage);
+        root.setTop(topPane);
+        root.setCenter(tpTabPane);
     }
 
     /**
@@ -100,11 +119,14 @@ public class TPMAPApplication extends Application {
         t.setText("TPMAP");
         t.setTextAlignment(TextAlignment.RIGHT);
 
+        StringProperty tp1d = new SimpleStringProperty(null);
+        StringProperty tp2d = new SimpleStringProperty(null);
+
         importButton.setOnAction((ActionEvent event) -> {
 
             Proteome tppExp = new Proteome(stage, tpTabPane);
 
-            if (tppExp.importWizard(stage, 0.2, 0.8)) {
+            if (tppExp.importWizard(stage, 0.2, 0.8, tp1d.getValue(), tp2d.getValue())) {
 
                 TPUserInterface tpUserInterface;
                 Tab tab;
@@ -140,10 +162,35 @@ public class TPMAPApplication extends Application {
 
                 }
             }
+            if(tp1d.getValue() != null) {
+                tp1d.setValue(null);
+            }
+            if(tp2d.getValue() != null) {
+                tp2d.setValue(null);
+            }
         });
 
         topPane.setLeft(importButton);
         topPane.setRight(t);
+
+        if(getParameters().getNamed().get("TP1D") != null) {
+            String[] params1d = (getParameters().getNamed().get("TP1D")).split(",");
+            for (String param : params1d) {
+                tp1d.setValue(param);
+                tp2d.setValue(null);
+                importButton.fire();
+                tp1d.setValue(null);
+            }
+        }
+        if(getParameters().getNamed().get("TP2D") != null) {
+            String[] params2d = (getParameters().getNamed().get("TP2D")).split(",");
+            for (String param : params2d) {
+                tp2d.setValue(param);
+                tp1d.setValue(null);
+                importButton.fire();
+                tp2d.setValue(null);
+            }
+        }
 
         return topPane;
     }

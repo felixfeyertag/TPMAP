@@ -29,10 +29,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.beans.Observable;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
@@ -97,9 +94,10 @@ public class ImportWizard implements Runnable {
     private CheckBox mtCheckbox;
 
     private Proteome tppExperiment;
-    
 
-    public ImportWizard(Stage parentStage, TabPane tpTabPane, double min, double max) {
+    private BooleanProperty run;
+
+    public ImportWizard(Stage parentStage, TabPane tpTabPane, double min, double max, String tp1d, String tp2d) {
 
         final BorderPane wizardPane = new BorderPane();
 
@@ -125,7 +123,7 @@ public class ImportWizard implements Runnable {
         
         dataFilePath.set("");
                 
-        steps.push(importWizardStep1());
+        steps.push(importWizardStep1(tp1d, tp2d));
         
         HBox buttons = new HBox();
         buttons.getChildren().addAll(cancBtn,nextBtn);
@@ -141,13 +139,24 @@ public class ImportWizard implements Runnable {
         initButtons(min,max);
 
         final Scene scene = new Scene(wizardPane);
-        
+
         importWizardStage.setScene(scene);
+
+        run = new SimpleBooleanProperty(false);
+        if(tp1d!=null || tp2d!=null) {
+            run.setValue(true);
+        }
     }
     
     @Override
     public synchronized void run() {
-        importWizardStage.showAndWait();
+        if(run.getValue()) {
+            nextBtn.fire();
+            importWizardStage.close();
+        }
+        else {
+            importWizardStage.showAndWait();
+        }
     }
     
     private void initButtons(double min,double max) {
@@ -197,13 +206,14 @@ public class ImportWizard implements Runnable {
                     alert.showAndWait();
                     Logger.getLogger(ImportWizard.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                importWizardStage.close();
             }
         });
         
         cancBtn.setOnAction((ActionEvent event) -> importWizardStage.close());
     }
     
-    private Parent importWizardStep1() {
+    private Parent importWizardStep1(String tp1d, String tp2d) {
         GridPane step1 = new GridPane();
         
         int row = 0;
@@ -291,6 +301,20 @@ public class ImportWizard implements Runnable {
         dataFileLoadButton.setText("Load");
         dataFileLoadBox.getChildren().add(dataFileLoadButton);
         step1.add(dataFileLoadBox, 1, row++);
+
+        if(tp1d != null) {
+            File f = new File(tp1d);
+            dataFilePath.set(f.getAbsolutePath());
+            dataFileName.setText(dataFilePath.get());
+            nextBtn.setDisable(false);
+        }
+        if(tp2d != null) {
+            File f = new File(tp2d);
+            dataFilePath.set(f.getAbsolutePath());
+            dataFileName.setText(dataFilePath.get());
+            nextBtn.setDisable(false);
+        }
+
         dataFileLoadButton.setOnAction((ActionEvent event) -> {
             try {
                 File f = dataFileFC.showOpenDialog(importWizardStage);
@@ -514,6 +538,10 @@ public class ImportWizard implements Runnable {
             normCombo.setDisable(true);
         });
 
+        if(tp1d!=null) {
+            exp1dRadioButton.fire();
+        }
+
         exp2dRadioButton.selectedProperty().addListener((Observable event) -> {
             this.expType = ExpType.TP2D;
             tppExperiment.setExpType(ExpType.TP2D);
@@ -691,7 +719,7 @@ public class ImportWizard implements Runnable {
                 importWizardStage.close();
                 alert.show();
             });
-            
+
             Thread progressThread = new Thread(extractProteins);
             progressThread.start();
             

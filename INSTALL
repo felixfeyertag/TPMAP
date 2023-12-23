@@ -1,16 +1,16 @@
 INSTALL
 
-TP-MAP is implemented in Java 11 and compilation is automated using Apache Maven. Installation time on a typical computer should be under 5 minutes.
+TP-MAP is implemented in Java 21 and compilation is automated using Apache Maven. Installation time on a typical computer should be under 5 minutes.
 
 DEPENDENCIES
 
-Please ensure up-to-date versions of Java JDK11 and Apache Maven are installed on your system.
+Please ensure up-to-date versions of Java OpenJDK and Apache Maven are installed on your system.
 
 Download these via your system package manager or via the links below:
 
-Java JDK11
+Java OpenJDK
 
-  https://adoptopenjdk.net/
+  https://adoptium.net/
 
 Apache Maven
 
@@ -25,7 +25,7 @@ To compile the software on your system, ensure that JAVA_HOME is set to your JDK
 
 e.g. on macOS
 
-  $ export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
+  $ export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
 
 The software can be compiled using the command:
 
@@ -40,7 +40,6 @@ The compiled jar file can be executed from a terminal, optionally setting desire
 
 e.g.
 
-  $ java -Xmx64g -jar target/TP-MAP-1.0-SNAPSHOT-jar-with-dependencies.jar
-
+  $ java -Xmx64g -jar target/TP-MAP-1-Beta6-jar-with-dependencies.jar
 
 
